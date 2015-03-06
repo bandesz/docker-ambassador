@@ -1,5 +1,4 @@
-FROM ubuntu:precise
-MAINTAINER	lucas@rufy.com
+FROM debian:8
 
 ENV DEBIAN_FRONTEND noninteractive
 
