@@ -1,5 +1,7 @@
 # Docker Ambassador
 
+Based on debian:8
+
 ## Run server service
 ```
 sudo docker run --name mysql-server -e MYSQL_ROOT_PASSWORD=pass -d mysql
