@@ -48,6 +48,25 @@ sudo docker run -it --link mysql-ambassador:mysql-server mysql bash
 
 ## Enable SSL
 
+### Generate server keys
+
+```Shell
+openssl genrsa -out server.key 1024
+openssl req -new -key server.key -x509 -days 3653 -out server.crt
+cat server.key server.crt > server.pem
+```
+
+Copy generated keys to the vagrant box's root, which is automatically shared with the VM under /vagrant
+
+### Generate client keys
+```Shell
+openssl genrsa -out client.key 1024
+openssl req -new -key client.key -x509 -days 3653 -out client.crt
+cat client.key client.crt > client.pem
+```
+
+Copy generated keys to the vagrant box's root, which is automatically shared with the VM under /vagrant
+
 ### Run server ambassador
 
 ```
