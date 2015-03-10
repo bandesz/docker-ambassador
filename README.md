@@ -19,6 +19,7 @@ https://registry.hub.docker.com/u/bandesz/ambassador/
 Two VM instances are used for this test - a server and a client one.
 
 Vagrantfile example:
+
 ```
 Vagrant::configure(2) do |config|
   config.vm.box = "phusion/ubuntu-14.04-amd64"
@@ -37,6 +38,9 @@ sudo docker run -d --link mysql-server:mysql-server --name mysql-ambassador -p 3
 ```
 
 ### Run client ambassador
+
+Use the server's ip instead of 1.2.3.4
+
 ```
 sudo docker run -d --name mysql-ambassador --expose 3306 -e MYSQL_PORT_3306_TCP=tcp://1.2.3.4:3306 bandesz/ambassador
 ```
@@ -75,6 +79,8 @@ sudo docker run -d --name mysql-ambassador --link mysql-server:mysql-server -p 3
 
 ### Run client ambassador
 
+Use the server's ip instead of 1.2.3.4
+
 ```
-sudo docker run -d --name mysql-ambassador --expose 3306 -e MYSQL_PORT_3306_TCP=tcp://172.28.128.4:3306 -e CLIENT_PRIVATE_KEY="`cat /vagrant/client.pem`" -e SSL_ENABLE="client" -e SERVER_PUBLIC_KEY="`cat /vagrant/server.crt`" bandesz/ambassador
+sudo docker run -d --name mysql-ambassador --expose 3306 -e MYSQL_PORT_3306_TCP=tcp://1.2.3.4:3306 -e CLIENT_PRIVATE_KEY="`cat /vagrant/client.pem`" -e SSL_ENABLE="client" -e SERVER_PUBLIC_KEY="`cat /vagrant/server.crt`" bandesz/ambassador
 ```
