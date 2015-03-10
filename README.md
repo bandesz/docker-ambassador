@@ -1,9 +1,16 @@
 # Docker Ambassador
 
+## Overview
+
+* Based on https://github.com/md5/ctlc-docker-ambassador
 * Based on the Ambassador pattern: https://docs.docker.com/articles/ambassador_pattern_linking/
 * Based on debian:8
 * Uses socat for relaying traffic
 * Uses supervisor for monitoring the socat processes
+ 
+## Docker image
+
+https://registry.hub.docker.com/u/bandesz/ambassador/
 
 ## Test
 
